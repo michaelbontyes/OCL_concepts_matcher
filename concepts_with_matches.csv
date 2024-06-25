@@ -1,0 +1,73 @@
+Label,Match,Score,External ID
+New admission,New admission,100.0,9f2fe30f-a8f0-49ba-82e4-71c232259130
+Readmission,Re-admission,96.0,e4e42ecd-196b-4aa8-a265-bfbed09d77cf
+Individual,Individual,100.0,MSF-AAAAAA000000000000001907
+Psychologist,Psychologist,100.0,MSF-AAAAAA000000000000001806
+Psychiatrist,Psychiatrist,100.0,MSF-AAAAAA000000000000001397
+Mobile clinic,Mobile clinic,100.0,MSF-AAAAAA000000000000001400
+Other,Other,100.0,5dc2a2a8-2ebe-4493-8b79-ffd0d5c959ab
+Emergency department MSF,Emergency department,95.0,c709f78b-5787-4c7e-b5bd-66aad28f7ff4
+MSF social worker,Social worker,95.0,MSF-AAAAAA000000000000001398
+4.2 Flashbacks,Flashbacks,95.0,MSF-AAAAAA000000000000001794
+1. Acute stress reaction,Acute stress reaction,95.0,MSF-AAAAAA000000000000000906
+3. Post-Traumatic Stress Disorder,Post Traumatic Stress Disorder,95.0,MSF-AAAAAA000000000000000691
+5. Anxiety Disorder,Anxiety disorder,95.0,MSF-AAAAAA000000000000000502
+7. Depression,Depression,95.0,MSF-AAAAAA000000000000000560
+15. Childhood emotional disorder,Childhood emotional disorder,95.0,MSF-AAAAAA000000000000000905
+3 - Mildly ill,Mildly ill,95.0,MSF-AAAAAA000000000000001838
+4 - Moderately ill,Moderately ill,95.0,MSF-AAAAAA000000000000001839
+5 - Markedly ill,Markedly ill,95.0,MSF-AAAAAA000000000000001840
+6 - Severely ill,Severely ill,95.0,MSF-AAAAAA000000000000001841
+1 - Very much improved,Very much improved,95.0,MSF-AAAAAA000000000000001843
+2 - Much improved,Much improved,95.0,MSF-AAAAAA000000000000001844
+3 - Minimally improved,Minimally improved,95.0,MSF-AAAAAA000000000000001845
+4 - No change,No change,95.0,MSF-AAAAAA000000000000001846
+5 - Minimally worse,Minimally worse,95.0,MSF-AAAAAA000000000000001847
+6 - Much worse,Much worse,95.0,MSF-AAAAAA000000000000001848
+7 - Very much worse,Very much worse,95.0,MSF-AAAAAA000000000000001849
+Unknown,Unknown,100.0,MSF-AAAAAA000000000000001329
+5. Legal services,Legal services,95.0,MSF-AAAAAA000000000000001406
+6. Protection services,Protection services,95.0,MSF-AAAAAA000000000000001407
+No change ,No change,100.0,MSF-AAAAAA000000000000001846
+Not at all,Not at all,100.0,MSF-AAAAAA000000000000001376
+Several days,Several days,100.0,MSF-AAAAAA000000000000001377
+More than half the days,More than half the days,100.0,MSF-AAAAAA000000000000001378
+Nearly every day,Nearly every day,100.0,MSF-AAAAAA000000000000001379
+A little,A little,100.0,f6a5ea2d-fc7d-4e9e-8dfd-dbbea05cd9a0
+Fair amount,Fair amount,100.0,de7fa192-bf2e-4991-a81f-582c4b50ae51
+A lot,A lot,100.0,0f074510-1ff6-4924-bfef-effdcffd44f8
+Yes,Yes,100.0,681cf0bc-5213-492a-8470-0a0b3cc324dd
+No,No,100.0,a5c5563e-df0e-4742-a335-b24fb63664ee
+Acute diarrhea (bloody),Bloody diarrhea,95.0,MSF-AAAAAA000000000000000512
+Acute jaundice syndrome,Acute jaundice syndrome,100.0,1123853b-0a4d-46f7-89e3-60a8bc21df14
+Bacterial meningitis,Bacterial meningitis,100.0,MSF-AAAAAA000000000000000509
+Burns,Burns,100.0,cd034a8b-f48a-4700-bd4a-37845f20ae30
+Cutaneous leishmaniosis,Cutaneous leishmaniasis,96.0,MSF-AAAAAA000000000000000555
+Diphtheria,Diphtheria,100.0,MSF-AAAAAA000000000000000567
+Extra pulmonary tuberculosis,"Extra pulmonary tuberculosis, suspect",95.0,MSF-AAAAAA000000000000000584
+Lower respiratory tract infection,Lower respiratory tract infection,100.0,MSF-AAAAAA000000000000000630
+Moderate acute malnutrition,Moderate acute malnutrition,100.0,MSF-AAAAAA000000000000000639
+Rabies,Rabies,100.0,MSF-AAAAAA000000000000000700
+Severe Acute Malnutrition (Marasmus),Severe acute malnutrition,95.0,MSF-AAAAAA000000000000000711
+Sexual violence / rape,Sexual Violence,95.0,MSF-AAAAAA000000000000000713
+Sexually transmitted disease (STI),Sexually transmitted disease,95.0,MSF-AAAAAA000000000000000677
+Sickle cell disease,Sickle cell disease,100.0,MSF-AAAAAA000000000000000718
+Tetanus,Tetanus,100.0,MSF-AAAAAA000000000000000733
+Typhoid fever,Typhoid fever,100.0,MSF-AAAAAA000000000000000748
+Upper respiratory tract infection,Upper respiratory tract infection,100.0,MSF-AAAAAA000000000000000755
+Visceral leishmaniasis,Visceral leishmaniasis,100.0,MSF-AAAAAA000000000000000765
+Whooping cough,Whooping cough,100.0,MSF-AAAAAA000000000000000767
+Bronchospasm,Bronchospasm,100.0,MSF-AAAAAA000000000000003155
+Cardiogenic shock,Cardiogenic shock,100.0,MSF-AAAAAA000000000000000523
+Hypoglycemia,Hypoglycaemia,96.0,MSF-AAAAAA000000000000000608
+Hypovolemic shock,Hypovolaemic shock,97.0,MSF-AAAAAA000000000000000611
+Septic shock,Septic shock,100.0,MSF-AAAAAA000000000000000710
+Type of consultation,Consultation type,95.0,MSF-AAAAAA000000000000002227
+Little interest or pleasure in doing things?,Little interest or pleasure in doing things over past two weeks,95.0,MSF-AAAAAA000000000000001197
+"Trouble falling or staying asleep, or sleeping too much?","Trouble falling or staying asleep, or sleeping too much over past two weeks",95.0,MSF-AAAAAA000000000000001242
+Feeling bad about yourself - or that you are a failure or have let yourself or your family down?,Feeling bad about yourself or that you're a failure or have let yourself or your family down,98.0,MSF-AAAAAA000000000000001245
+"Trouble concentrating on things, such as reading the newspaper or watching television?",Trouble concentrating on things such as reading the newspaper or watching television,99.0,MSF-AAAAAA000000000000001246
+Moving or speaking so slowly that other people could have noticed? Or the opposite - being so fidgety or restless that you have been moving around a lot more than usual?,Moving or speaking so slowly that other people could have noticed or being so fidgety or restless that you have been moving around lot more than usual,95.0,MSF-AAAAAA000000000000001247
+"Thoughts that you would be better off dead, or of hurting yourself in some way?",Thoughts that you would be better off dead or of hurting yourself in some way,99.0,MSF-AAAAAA000000000000001248
+Reason for referral,Reason for referral,100.0,MSF-AAAAAA000000000000000461
+Session number,Session number,100.0,MSF-AAAAAA000000000000001699
