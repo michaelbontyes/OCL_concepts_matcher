@@ -1,0 +1,42 @@
+[
+    {
+        "uuid": "76189",
+        "id": "146103",
+        "external_id": "146103AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display_name": "Cataracta Brunescens",
+        "datatype": "N/A",
+        "concept_class": "Diagnosis",
+        "display_locale": "en",
+        "URL": "/orgs/CIEL/sources/CIEL/concepts/146103/"
+    },
+    {
+        "uuid": "57099",
+        "id": "146102",
+        "external_id": "146102AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display_name": "Catarrh - Eustachian",
+        "datatype": "N/A",
+        "concept_class": "Diagnosis",
+        "display_locale": "en",
+        "URL": "/orgs/CIEL/sources/CIEL/concepts/146102/"
+    },
+    {
+        "uuid": "67628",
+        "id": "146101",
+        "external_id": "146101AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display_name": "Catarrhal Appendicitis",
+        "datatype": "N/A",
+        "concept_class": "Diagnosis",
+        "display_locale": "en",
+        "URL": "/orgs/CIEL/sources/CIEL/concepts/146101/"
+    },
+    {
+        "uuid": "68156",
+        "id": "146100",
+        "external_id": "146100AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display_name": "Catarrhal Conjunctivitis",
+        "datatype": "N/A",
+        "concept_class": "Diagnosis",
+        "display_locale": "en",
+        "URL": "/orgs/CIEL/sources/CIEL/concepts/146100/"
+    }
+]
