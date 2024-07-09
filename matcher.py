@@ -1,5 +1,6 @@
 import openpyxl
 import json
+import math
 from rapidfuzz import process, fuzz
 import pandas as pd
 
@@ -7,16 +8,19 @@ import pandas as pd
 openpyxl.reader.excel.warnings.simplefilter(action='ignore')
 
 # Excel Metadata filepath
-metadata_filepath = "LIME EMR - Iraq Metadata - Release 1 (12).xlsx"
+metadata_filepath = "LIME EMR - Iraq Metadata - Release 1 (13).xlsx"
 
 # Matching threshold for fuzzy string matching
 FUZZY_THRESHOLD = 90
+
+# Initialize the counter of concept to match
+CONCEPTS_TO_MATCH = 0
 
 # Initialize the counter of matches found above the threshold
 MATCHES_FOUND = 0
 
 # Define the sheets to read
-excel_sheets = [ 'F01-MHPSS Baseline', 'OptionSets']
+excel_sheets = [ 'FXX-Test_Only']
 
 # excel_sheets = [ 'F01-MHPSS Baseline', 'F02-MHPSS Follow-up', 'F03-mhGAP Baseline', 'F04-mhGAP Follow-up', 'F05-MH Closure', 'F06-PHQ-9', 'F07-ITFC form', 'F08-ATFC form', 'OptionSets']
 
@@ -76,6 +80,7 @@ def find_best_matches(primary, secondary, data, threshold=FUZZY_THRESHOLD, limit
 
 # Iterate through the sheets in df that are in the excel_sheets list with headers on row 2
 for sheet_name in excel_sheets:
+
     # Load the Excel file, considering the header on row 2
     df = pd.read_excel(metadata_filepath, sheet_name=sheet_name, header=1)
     print(f"Processing sheet: {sheet_name}")
@@ -117,8 +122,12 @@ for sheet_name in excel_sheets:
             #print(json.dumps(display_names, indent=4))
             #print(f"Loaded {len(display_names)} concepts from {source_name}")
 
+        # Load the existing Excel file to append the suggestions
+        book = openpyxl.load_workbook(metadata_filepath)
+
         # Iterate through each row in the sheet and get the Label if different if exist of nothing as a primary label to match, and the Question if exist or Answer if sheet is optionSets as secondary label to match
         for index, row in df.iterrows():
+            CONCEPTS_TO_MATCH += 1
             primary_lookup = row.get('Label if different') or None
             secondary_lookup = row.get('Question') or row.get('Answers') or None
             #print(f"Processing row {index+1}: {primary_lookup} - {secondary_lookup}")
@@ -127,7 +136,39 @@ for sheet_name in excel_sheets:
             best_matches = find_best_matches(primary_lookup, secondary_lookup, source_data)
             # Print the results
             for id_, match, score, definition in best_matches:
-                    print(f"Match found: ID: {id_}, Match: {match}, Score: {score}, Definition: {definition}")
+                print(f"Match found: ID: {id_}, Match: {match}, Score: {score}, Definition: {definition}")
+                # Using Excel Writer, append or update the details in the original existing Excel sheet and cells in the specified columns depending on the source name
+                with pd.ExcelWriter(metadata_filepath, engine='openpyxl', mode='a') as writer:
+                    workbook = writer.book
+                    worksheet = workbook[sheet_name]
+
+                    # Get the column indices for the suggestion, external ID, description, datatype, concept class, and extras
+                    suggestion_index = suggestion_column.find(suggestion_column) + 1
+                    external_id_index = external_id_column.find(external_id_column) + 1
+                    description_index = description_column.find(description_column) + 1
+                    datatype_index = datatype_column.find(datatype_column) + 1
+                    concept_class_index = dataclass_column.find(dataclass_column) + 1
+                    score_index = score_column.find(score_column) + 1
+
+                    # Append the details to the existing Excel sheet
+                    worksheet.cell(row=index+2, column=suggestion_index).value = match
+                    worksheet.cell(row=index+2, column=external_id_index).value = external_id
+                    worksheet.cell(row=index+2, column=description_index).value = definition
+                    worksheet.cell(row=index+2, column=datatype_index).value = datatype
+                    worksheet.cell(row=index+2, column=concept_class_index).value = concept_class
+                    worksheet.cell(row=index+2, column=score_index).value = score
+
+                    # Close the ExcelWriter to save the changes
+                    writer.close()
+
+# Count of sources used
+print(f"\nSources used: {len(automatch_references)}")
+
+# Show the total number of concepts processed
+CONCEPTS_TO_MATCH = math.ceil(CONCEPTS_TO_MATCH / len(automatch_references))
+print(f"\nTotal concept processed: {CONCEPTS_TO_MATCH}")
 
 # Show the total number of matches found above the threshold
-print(f"\nTotal matches found: {MATCHES_FOUND}")
+percentage_found = (MATCHES_FOUND / CONCEPTS_TO_MATCH) * 100
+rounded_percentage_found = math.ceil(percentage_found)
+print(f"\nTotal matches found: {MATCHES_FOUND} ({rounded_percentage_found}%)")
