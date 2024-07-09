@@ -8,7 +8,7 @@ import pandas as pd
 openpyxl.reader.excel.warnings.simplefilter(action='ignore')
 
 # Excel Metadata filepath
-metadata_filepath = "LIME EMR - Iraq Metadata - Release 1 (14).xlsx"
+metadata_filepath = "LIME EMR - Iraq Metadata - Release 1.xlsx"
 
 # Matching threshold for fuzzy string matching
 FUZZY_THRESHOLD = 90
@@ -172,7 +172,7 @@ for sheet_name in excel_sheets:
                 best_matches = find_best_matches(primary_lookup, secondary_lookup, source_data)
                 # Print the results
                 for id_, match, score, definition in best_matches:
-                    print(f"Match found: ID: {id_}, Match: {match}, Score: {score}, Definition: {definition}")
+                    #print(f"Match found: ID: {id_}, Match: {match}, Score: {score}, Definition: {definition}")
 
                     # Get the column indices for the suggestion, external ID, description, datatype, concept class, and extras based on the column names in the source in the automatch_references
                     print(f"Updating row {index+3} with {suggestion_column}: {match}")
@@ -180,7 +180,7 @@ for sheet_name in excel_sheets:
                     print(f"Updating row {index+3} with {description_column}: {definition}")
                     print(f"Updating row {index+3} with {datatype_column}: {datatype}")
                     print(f"Updating row {index+3} with {dataclass_column}: {concept_class}")
-                    print(f"Updating row {index+3} with {score_column}: {score}")
+                    print(f"Updating row {index+3} with {score_column}: {math.ceil(score)}")
 
                     # Append the details to the existing Excel sheet
                     worksheet.cell(row=index+3, column=suggestion_column).value = match
@@ -188,7 +188,7 @@ for sheet_name in excel_sheets:
                     worksheet.cell(row=index+3, column=description_column).value = definition
                     worksheet.cell(row=index+3, column=datatype_column).value = datatype
                     worksheet.cell(row=index+3, column=dataclass_column).value = concept_class
-                    worksheet.cell(row=index+3, column=score_column).value = score
+                    worksheet.cell(row=index+3, column=score_column).value = math.ceil(score)
 
             # Close the Excel file writer
             workbook.close()
