@@ -1,8 +1,8 @@
 import json
 
 # Define source and target file paths
-source_file = 'CIEL_Source_20240626_115849.json'
-filtered_file = 'CIEL_Source_Filtered_20240626_115849.json'
+source_file = 'MSF_Source_20240704_161129.json'
+filtered_file = 'MSF_Source_Filtered_20240704_161129.json'
 
 # Initialize an empty list to hold the filtered data
 filtered_data = []

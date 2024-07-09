@@ -25,6 +25,12 @@ def fetch_all_concepts(url, file_path):
                     file.write(",\n")
                 
                 for i, concept in enumerate(data):
+                    concept_url = f"https://api.openconceptlab.org/orgs/CIEL/sources/CIEL/concepts/{concept['id']}/"
+                    concept_response = requests.get(concept_url, timeout=30)  # Increased timeout duration to 30 seconds
+                    if concept_response.status_code == 200:
+                        concept_details = concept_response.json()
+                        concept.update(concept_details)  # Merge concept details with the existing concept data
+                    
                     json.dump(concept, file)
                     if i < len(data) - 1:
                         file.write(",\n")
@@ -46,7 +52,7 @@ API_URL = "https://api.openconceptlab.org/orgs/CIEL/sources/CIEL/concepts/?q=&li
 
 # Save the fetched concepts to a JSON file with a timestamp
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-file_path = f"concepts_{timestamp}.json"
+file_path = f"CIEL_Source_{timestamp}.json"
 
 # Fetch and save total concepts incrementally
 total_concepts = fetch_all_concepts(API_URL, file_path)
