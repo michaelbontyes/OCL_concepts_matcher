@@ -16,7 +16,7 @@ FUZZY_THRESHOLD = 90
 MATCHES_FOUND = 0
 
 # Define the sheets to read
-excel_sheets = [ 'F01-MHPSS Baseline']
+excel_sheets = [ 'F01-MHPSS Baseline', 'OptionSets']
 
 # excel_sheets = [ 'F01-MHPSS Baseline', 'F02-MHPSS Follow-up', 'F03-mhGAP Baseline', 'F04-mhGAP Follow-up', 'F05-MH Closure', 'F06-PHQ-9', 'F07-ITFC form', 'F08-ATFC form', 'OptionSets']
 
@@ -30,11 +30,20 @@ automatch_references = {
         "datatype_column": "MSF Source Datatype",
         "dataclass_column": "MSF Source Class",
         "score_column": "MSF Source Score"
-    }
+    },
+    "PIH": {
+        "source_filepath": "PIH_Source_20240708_145352.json",
+        "suggestion_column": "PIH Source Suggestion",
+        "external_id_column": "PIH Source External ID",
+        "description_column": "PIH Source Description",
+        "datatype_column": "PIH Source Datatype",
+        "dataclass_column": "PIH Source Class",
+        "score_column": "PIH Source Score"
+    },
 }
 
 # Find the best matches for each primary and secondary label in the metadata spreadsheet
-def find_best_matches(primary, secondary, data, limit=5):
+def find_best_matches(primary, secondary, data, threshold=FUZZY_THRESHOLD, limit=5):
     """
     Find the best matches for a primary and secondary value from a list of data.
 
@@ -50,8 +59,8 @@ def find_best_matches(primary, secondary, data, limit=5):
     # Extract display_names from data for comparison
     display_names = [item['display_name'] for item in data]
 
-    # Use rapidfuzz's process.extract to find the best matches
-    matches = process.extract(query, display_names, limit=limit)
+    # Use rapidfuzz's process.extract to find the best matches with threshold
+    matches = process.extract(query, display_names, scorer=fuzz.WRatio, score_cutoff=threshold, limit=limit)
 
     # Map the matches back to their corresponding IDs and definitions
     results = []
